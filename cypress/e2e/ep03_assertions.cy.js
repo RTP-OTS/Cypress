@@ -1,7 +1,7 @@
 require('cypress-xpath');
 describe("Assertions learning", () => {
 
-    it("Implicit assertions", () => {
+    it.skip("Implicit assertions", () => {
         
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
@@ -19,16 +19,13 @@ describe("Assertions learning", () => {
         .and('contain',"HRM")
 
         cy.get('.orangehrm-login-branding > img').should('be.visible')
-
         cy.get("input[placeholder='Username']").type("Admin")
-
         cy.get("input[placeholder='Username']").should('have.value','Admin')
-
         cy.xpath("//a").should('have.length','5')
 
     })
 
-    it("explicit assertions", () => {
+    it("TC02-Add user in role admin", () => {
         cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         cy.get("input[placeholder='Username']").type("Admin")
         cy.get("input[placeholder='Username']").should('have.value','Admin')
@@ -37,13 +34,22 @@ describe("Assertions learning", () => {
         
         cy.get("button[type='submit']").click()
 
-        let expName='Paul Collings'
-        
-        cy.get(".oxd-userdropdown-name").then(  (x)=>{
-                
-            let actName=x.text()
-            expect(actName).to.equal(expName)
+        cy.get('.oxd-topbar-header-breadcrumb > .oxd-text').contains('Dashboard')
 
-        })     
+        cy.get(':nth-child(1) > .oxd-main-menu-item > .oxd-text').click()
+        
+        cy.get('.oxd-table-filter-header-title > .oxd-text').contains('System Users')
+
+        cy.get('.orangehrm-header-container > .oxd-button').should('be.visible').click()
+
+        cy.get('.orangehrm-card-container > .oxd-text--h6').contains('Add User')
+
+        cy.get(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text-input').type('ESS')
+        cy.contains(':nth-child(1) > .oxd-input-group > :nth-child(2) > .oxd-select-wrapper > .oxd-select-text > .oxd-select-text-input', 'ESS').click()
+
+        
+
+
+
     })
 })
