@@ -1,3 +1,4 @@
+require('cypress-xpath');
 describe('Register page with invalid information', () => {
     beforeEach(() => {
       cy.visit('https://demo.nopcommerce.com/register?returnUrl=%2F');
