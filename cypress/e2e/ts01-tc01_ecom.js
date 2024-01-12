@@ -1,3 +1,4 @@
+/// <reference types="cypress-xpath" />
 require('cypress-xpath');
 describe("Assertions learning", () => {
 
