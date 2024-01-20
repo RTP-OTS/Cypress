@@ -1,3 +1,4 @@
+const { generateRandomEmail }=require ('../e2e/Resource/utils_generateEmail');
 describe('Register page when input invalid information', () => {
     beforeEach(() => {
       cy.visit('https://demo.nopcommerce.com/register?returnUrl=%2F');
@@ -12,10 +13,10 @@ describe('Register page when input invalid information', () => {
       cy.get('#gender-male').click().should('be.checked');
   
       // Fill in first name
-      cy.get('#FirstName').type('RTP').should('have.value', 'RTP');
+      cy.get('#FirstName').type('Automate').should('have.value', 'Automate');
   
       // Fill in last name
-      cy.get('#LastName').type('OTGS').should('have.value', 'OTGS');
+      cy.get('#LastName').type('Demo').should('have.value', 'Demo');
   
       // Select date of birth
       cy.get('select[name="DateOfBirthDay"]').select('4').should('have.value', '4');
@@ -23,11 +24,11 @@ describe('Register page when input invalid information', () => {
       cy.get('select[name="DateOfBirthYear"]').select('1992').should('have.value', '1992');
   
       // Generate a random email and fill in the email input
-      const randomEmail = 'test@example.com'; // Replace this with your email generation logic
+      const randomEmail = generateRandomEmail();
       cy.get('#Email').type(randomEmail).should('have.value', randomEmail);
   
       // Fill in company name
-      cy.get('#Company').type('Playwright').should('have.value', 'Playwright');
+      cy.get('#Company').type('Cypress').should('have.value', 'Cypress');
   
       // Check the newsletter option
       cy.get('#Newsletter').check().should('be.checked');
