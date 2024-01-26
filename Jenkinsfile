@@ -16,9 +16,14 @@ pipeline {
       }
     }
 
-    stage('Run Cypress Tests') {
+    stage('Regression test') {
       steps {
-        sh 'npx cypress run' // Adjust this command based on your Cypress test setup
+        sh 'npx cypress run --spec "cypress/e2e/regression.cy.js"'
+      }
+    }
+      stage('Smoke test') {
+      steps {
+        sh 'npx cypress run --spec "cypress/e2e/smoke.cy.js"'
       }
     }
   }

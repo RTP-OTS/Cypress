@@ -1,4 +1,4 @@
-const { generateRandomEmail }=require ('../e2e/Resource/utils_generateEmail');
+const { generateRandomEmail }=require ('./Resource/utils_generateEmail');
 describe('Register page when input invalid information', () => {
     beforeEach(() => {
       cy.visit('https://demo.nopcommerce.com/register?returnUrl=%2F');
