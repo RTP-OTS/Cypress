@@ -16,7 +16,7 @@ pipeline {
       }
     }
 
-    stage('RegresSmokesion test') {
+    stage('Regression test') {
       steps {
         sh 'npx cypress run --spec "cypress/e2e/regression.cy.js"'
       }
