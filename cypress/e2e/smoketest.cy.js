@@ -1,3 +1,4 @@
+const { generateRandomEmail }=require ('./Resource/utils_generateEmail');
 require('cypress-xpath');
 describe('Register page with invalid information', () => {
     beforeEach(() => {
@@ -19,7 +20,8 @@ describe('Register page with invalid information', () => {
   
     it('should allow entering email, company, and password', () => {
       //const randomEmail = generateRandomEmail(); // Assuming you have this function defined
-      cy.get('#Email').type('testing_automated12@gmail.com');
+      const randomEmail = generateRandomEmail();
+      cy.get('#Email').type(randomEmail).should('have.value', randomEmail);
       cy.get('#Company').type('Playwright');
       cy.get('#Newsletter').check();
       cy.get('#Password').type('abc123456');
