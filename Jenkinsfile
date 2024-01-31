@@ -8,6 +8,10 @@ pipeline {
   tools {
     nodejs 'NodeJS 20.9' // Make sure you have NodeJS tool configured
   }
+  
+  options {
+        ansiColor('xterm')
+  }
 
   stages {
     stage('Install Cypress') {
@@ -21,14 +25,14 @@ pipeline {
         sh 'npx cypress run --spec "cypress/e2e/regression.cy.js"'
       }
     }
-      stage('api test') {
+      stage('Smoke test') {
       steps {
         sh 'npx cypress run --spec "cypress/e2e/smoketest.cy.js"'
       }
     }
-      stage('Smoke test') {
+      stage('API test') {
       steps {
-        sh 'npx cypress run --spec "cypress/e2e/smoketest.cy.js"'
+        sh 'npx cypress run --spec "cypress/e2e/api-test.cy.js"'
       }
     }
   }
