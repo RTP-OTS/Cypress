@@ -8,6 +8,9 @@ pipeline {
   tools {
     nodejs 'NodeJS 20.9' // Make sure you have NodeJS tool configured
   }
+  options {
+        ansiColor('xterm')
+  }
 
   stages {
     stage('Install Cypress') {
