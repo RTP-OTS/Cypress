@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    CYPRESS_INSTALL_BINARY = 'latest' // Specify your Cypress version here
+    CYPRESS_INSTALL_BINARY = '13.6.3' // Specify your Cypress version here
   }
 
   tools {
