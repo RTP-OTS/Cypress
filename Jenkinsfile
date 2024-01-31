@@ -21,6 +21,11 @@ pipeline {
         sh 'npx cypress run --spec "cypress/e2e/regression.cy.js"'
       }
     }
+      stage('api test') {
+      steps {
+        sh 'npx cypress run --spec "cypress/e2e/api-test.cy.js"'
+      }
+    }
       stage('Smoke test') {
       steps {
         sh 'npx cypress run --spec "cypress/e2e/smoketest.cy.js"'
