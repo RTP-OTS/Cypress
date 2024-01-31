@@ -10,15 +10,15 @@ pipeline {
   }
 
     stage('Regression test') {
-      steps {
+      steps 
         sh 'npx cypress run --spec "cypress/e2e/regression.cy.js"'
       
     }
       stage('Smoke test') {
-      steps {
+      steps 
         sh 'npx cypress run --spec "cypress/e2e/smoketest.cy.js"'
       }
     }
-  }
-}
+  
+
 
