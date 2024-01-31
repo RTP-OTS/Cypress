@@ -4,9 +4,7 @@ pipeline {
   environment {
     CYPRESS_INSTALL_BINARY = '13.6.3' // Specify your Cypress version here
   }
-  options {
-        ansiColor('xterm')
-  }
+
   tools {
     nodejs 'NodeJS 20.9' // Make sure you have NodeJS tool configured
   }
@@ -25,7 +23,7 @@ pipeline {
     }
       stage('api test') {
       steps {
-        sh 'npx cypress run --spec "cypress/e2e/api-test.cy.js"'
+        sh 'npx cypress run --spec "cypress/e2e/smoketest.cy.js"'
       }
     }
       stage('Smoke test') {
