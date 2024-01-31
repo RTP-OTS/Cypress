@@ -4,12 +4,11 @@ pipeline {
   environment {
     CYPRESS_INSTALL_BINARY = '13.6.3' // Specify your Cypress version here
   }
-
-  tools {
-    nodejs 'NodeJS 20.9' // Make sure you have NodeJS tool configured
-  }
   options {
         ansiColor('xterm')
+  }
+  tools {
+    nodejs 'NodeJS 20.9' // Make sure you have NodeJS tool configured
   }
 
   stages {
