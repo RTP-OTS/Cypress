@@ -1,3 +1,4 @@
+const JSONdata = require ('./Resource/config.json')
 describe('User API Tests', () => {
   //let enFirstname = generateName();
   let userid;
@@ -12,8 +13,8 @@ describe('User API Tests', () => {
 
   it('Create User', () => {
     cy.request('POST', 'https://reqres.in/api/users', {
-      name: 'King',
-      job: 'System Engineer'
+      name: JSONdata.user.username,
+      job: JSONdata.account
     }).then((response) => {
       console.log(response.body);
       expect(response.status).to.eq(201);

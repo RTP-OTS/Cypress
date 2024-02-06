@@ -1,4 +1,6 @@
 const { generateRandomEmail }=require ('./Resource/utils_generateEmail');
+const JSONdata  = require ('./Resource/config.json')
+
 describe('Register page when input invalid information', () => {
     beforeEach(() => {
       cy.visit('https://demo.nopcommerce.com/register?returnUrl=%2F');
@@ -13,10 +15,10 @@ describe('Register page when input invalid information', () => {
       cy.get('#gender-male').click().should('be.checked');
   
       // Fill in first name
-      cy.get('#FirstName').type('Automate').should('have.value', 'Automate');
+      cy.get('#FirstName').type(JSONdata.user.username).should('have.value', JSONdata.user.username);
   
       // Fill in last name
-      cy.get('#LastName').type('Demo').should('have.value', 'Demo');
+      cy.get('#LastName').type(JSONdata.account).should('have.value', JSONdata.account);
   
       // Select date of birth
       cy.get('select[name="DateOfBirthDay"]').select('4').should('have.value', '4');
