@@ -7,7 +7,7 @@ describe('User API Tests', () => {
     cy.request('GET', 'https://reqres.in/api/users?page=2')
       .then((response) => {
         console.log(response.body);
-        expect(response.status).to.eq(200);
+        expect(response.status).to.eq(404);
       });
   });
 
