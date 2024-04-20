@@ -4,9 +4,9 @@
         "firstName": "John",
         "lastName": "Doe",
         "dateOfBirth": {
-            "day": "4",
-            "month": "August",
-            "year": "1992"
+            "day": "10",
+            "month": "December",
+            "year": "1990"
         },
         "companyName": "Cypress",
         "subscribeToNewsletter": true,
