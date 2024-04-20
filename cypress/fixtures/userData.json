@@ -1,0 +1,15 @@
+{
+    "user": {
+        "gender": "male",
+        "firstName": "John",
+        "lastName": "Doe",
+        "dateOfBirth": {
+            "day": "4",
+            "month": "August",
+            "year": "1992"
+        },
+        "companyName": "Cypress",
+        "subscribeToNewsletter": true,
+        "password": "abc123456"
+    }
+}

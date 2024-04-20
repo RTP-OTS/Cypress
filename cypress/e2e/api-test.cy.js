@@ -7,7 +7,7 @@ describe('User API Tests', () => {
     cy.request('GET', 'https://reqres.in/api/users?page=2')
       .then((response) => {
         console.log(response.body);
-        expect(response.status).to.eq(404);
+        expect(response.status).to.eq(200);
       });
   });
 
@@ -24,7 +24,7 @@ describe('User API Tests', () => {
 
   it('Update User and verify message after this', () => {
     cy.request('PUT', `https://reqres.in/api/users/${userid}`, {
-      name: 'Toon',
+      name: 'Tester',
       job: 'QA Automated'
     }).then((response) => {
       console.log(response.body);
